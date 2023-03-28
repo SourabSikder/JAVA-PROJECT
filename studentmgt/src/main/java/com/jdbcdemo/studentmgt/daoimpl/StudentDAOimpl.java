@@ -14,13 +14,12 @@ public class StudentDAOimpl implements StudentDAO{
 	HiberUtil hu = new HiberUtil();
 	//session instance
 	Session session = hu.getSession();
-
-	//get Student record method
+@Override
 	public Student getStudent(int id) {
 
 		return session.get(Student.class, id);
 	}
-
+@Override
 	//delete method
 	public void deleteStudent(int id) {
 		Student s = getStudent(id);
@@ -29,7 +28,7 @@ public class StudentDAOimpl implements StudentDAO{
 		tx.commit();
 
 	}
-
+@Override
 	//insert method
 	public void insertStudent(int id, String name, String contact, Address address) {
 		Transaction tx = session.beginTransaction();
@@ -41,7 +40,7 @@ public class StudentDAOimpl implements StudentDAO{
 		System.out.println("Record inserted successfully....");
 
 	}
-
+@Override
 	//update method
 	public void updateStudent(int id, String name, String contact, Address address) {
 		Student s = getStudent(id);
@@ -54,11 +53,13 @@ public class StudentDAOimpl implements StudentDAO{
 		System.out.println("Updated Successfully....");
 
 	}
-	
+@Override
 	//session close method
 	public void closeSession() {
 		session.close();
 	}
+	
+	
 
 
 }

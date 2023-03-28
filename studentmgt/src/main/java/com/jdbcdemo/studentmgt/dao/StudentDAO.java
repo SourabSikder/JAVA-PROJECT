@@ -7,7 +7,7 @@ import com.jdbcdemo.studentmgt.entity.Student;
 public interface StudentDAO {
 	
 	//methods
-	Student getStudent(int id);
+	public Student getStudent(int id);
 
 	public void deleteStudent(int id);
 
